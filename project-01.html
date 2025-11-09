@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Understanding Road Fatalities in Australia — Data-Driven Insight</title>
+  <meta name="description" content="A data-driven analysis of national road fatalities in Australia (last 10 years). Interactive dashboard, key findings, and recommended focus areas for policy makers." />
+  <style>
+    :root{--max-width:900px;--accent:#0b5fff;--muted:#6b7280}
+    body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;color:#111;margin:0;padding:24px;background:#f7fafc}
+    .container{max-width:var(--max-width);margin:0 auto;background:#fff;padding:28px;border-radius:10px;box-shadow:0 6px 22px rgba(15,23,42,0.06)}
+    header{display:flex;align-items:center;gap:16px}
+    .hero{width:100%;height:220px;border-radius:8px;object-fit:cover;background:#e6eefc;display:block}
+    h1{font-size:1.6rem;margin:8px 0}
+    .byline{color:var(--muted);font-size:0.95rem}
+    .section{margin-top:22px}
+    h2{font-size:1.05rem;margin-bottom:8px;color:#0f172a}
+    p{margin:8px 0}
+    ul{margin:8px 0 8px 20px}
+    .kpi-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+    .kpi{background:#fbfdff;padding:12px;border-radius:8px;border:1px solid #eef2ff}
+    .cta{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;margin-top:12px}
+    .note{font-size:0.9rem;color:var(--muted);background:#fff7ed;padding:10px;border-radius:8px;border:1px solid #fff1d6}
+    footer{margin-top:26px;font-size:0.9rem;color:var(--muted)}
+    @media (max-width:600px){body{padding:12px}.hero{height:160px}}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div style="flex:1">
+        <img src="images/Project%2001/banner.png" alt="Australian road safety banner — replace with a high-quality hero image" class="hero">
+      </div>
+    </header>
+
+    <h1>Understanding Road Fatalities in Australia: A Data‑Driven Insight for Smarter Road Safety Decisions</h1>
+    <div class="byline">By <strong>Salitha Dinushika</strong> — Data Analyst | Statistical Modeller | Dashboard Designer</div>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>
+        Road safety remains a critical public health challenge in Australia. Despite investments in enforcement, infrastructure, and education, the national annual fatality trend across the last 10 years remains relatively stable. This project investigates why that may be the case and identifies the high‑impact groups that should be prioritised for targeted interventions.
+      </p>
+      
+<p style="text-align:center;margin-top:15px;">
+  <img src="images/Project%2001/annual-fatalities-trend.png" alt="Line chart showing annual fatalities trend in Australia over the last 10 years" style="width:80%;border-radius:8px;object-fit:cover">
+</p>
+<p style="text-align:center;color:#808080;font-weight:bold;margin-top:0px;">
+  Annual fatalities trend over the past 10 years
+</p>
+
+    </section>
+
+    <section class="section">
+      <h2>1. Problem Statement</h2>
+      <p>
+        Although multiple agencies run road safety programs, the persistent average number of annual fatalities suggests limited effectiveness of current strategies. This project focuses on uncovering patterns by state, demographic group, road environment, and temporal factors to identify high-contributing groups, enabling better policy prioritisation and more effective allocation of limited resources.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>2. Finding the Right Dataset</h2>
+      <p>
+        The analysis uses official records from the National Road Safety Data Hub: <a href="https://datahub.roadsafety.gov.au/" target="_blank" rel="noopener">datahub.roadsafety.gov.au</a>. The repository contains over 35 years of fatality records; for this analysis, the most recent 10 years were selected to ensure relevance to the current environment.
+      </p>
+      
+	<p>
+    Dataset link: <a href="https://datahub.roadsafety.gov.au/sites/default/files/documents/Australian%20Road%20Deaths%20Database%20September%202025.xlsx" target="_blank" rel="noopener">Australian Road Deaths Database (Sept 2025)</a>
+  </p>
+    </section>
+
+    <section class="section">
+      <h2>3. Tools Used</h2>
+      <p>
+        The full workflow was completed using <strong>Microsoft Excel</strong>: data transformation, cleaning, pivot tables, slicers, and a responsive dashboard layout. This demonstrates strong end‑to‑end analysis capability using a widely accessible tool.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>4. Data Cleaning & Preparation</h2>
+      <p>
+        Key preprocessing steps included handling missing values, filtering relevant years, grouping categorical variables, and creating derived columns for improved aggregation and visualization. Below is a concise summary:
+      </p>
+      <ul>
+        <li><strong>Missing values:</strong> Labeled as <em>"Unknown"</em> and kept for analysis to avoid information loss.</li>
+        <li><strong>Year filter:</strong> Selected the <strong>last 10 years</strong> from the dataset.</li>
+        <li><strong>Category grouping:</strong> Consolidated granular values (e.g., exact speed limits) into logical ranges (0–29, 30–59, 60–89, 90-119, 120+ km/h).</li>
+        <li><strong>Derived columns:</strong> Created helper columns for Months, Maximum Speed Limit Groups, Age Groups, Time-of-Day Groups, and Road User Groups to simplify visualization.</li>
+      </ul>
+      
+
+
+<p style="text-align:center;margin-top:20px;">
+    <img src="images/Project%2001/time-of-day-grouping.png" alt="Table showing Time of Day grouping: Early Morning, Morning, Afternoon, Evening" style="width:25%;border-radius:8px;object-fit:cover">
+  </p>
+
+<p style="text-align:center;color:#808080;font-weight:bold;margin-top:0px;">
+  Example: Grouping data and generating a new column for time zones.
+</p>
+
+    </section>
+
+    <section class="section">
+      <h2>5. KPI Analysis & Key Insights</h2>
+      <p>
+        The cleaned data was analyzed across ten crucial dimensions to develop a comprehensive profile of road fatalities. The analysis was structured to support both broad national understanding and specific regional/temporal investigations via filters.
+      </p>
+      <div class="kpi-list">
+        <div class="kpi">Annual Fatalities Trend</div>
+        <div class="kpi">Fatalities by Month</div>
+        <div class="kpi">Fatalities by Road User</div>
+        <div class="kpi">Fatalities by Weekday</div>
+        <div class="kpi">Fatalities by Time of Day</div>
+        <div class="kpi">Fatalities by Speed Limit (km/h)</div>
+        <div class="kpi">Fatalities by Gender</div>
+        <div class="kpi">Fatalities by State</div>
+        <div class="kpi">Fatalities by Remoteness</div>
+        <div class="kpi">Fatalities by Age Group</div>
+      </div>
+
+      
+    </section>
+<section class="section">
+      <h2>6. Data Visualization & Interactive Dashboard</h2>
+	<p>The dashboard presents all KPIs interactively using graphs and charts, allowing users to explore trends and patterns effectively and to:</p>
+
+
+      <ul>
+        <li>Select year ranges and one or multiple states</li>
+        <li>See KPIs update automatically</li>
+        <li>Use the "High‑Contributing Groups" selector to reveal which demographic or environmental groups contribute most to fatalities based on chosen KPIs</li>
+      </ul>
+
+
+<p style="color: #808080;">
+        <strong>Dashboard preview:</strong>
+      </p>
+      <p><img src="images/Project%2001/dashboard-screenshot.jpg" alt="Dashboard screenshot showing KPIs and filters — replace with actual screenshot" style="width:100%;border-radius:8px;object-fit:cover"></p>
+
+      <p><strong>Highest Risk Profiles Feature:</strong> A dedicated space in the dashboard titled <em>"Highest Risk Profiles"</em> allows users to analyse the impact of specific factors. It includes tick boxes for each KPI, and users can select any combination of KPIs to instantly view the <strong>top three contributing risk groups</strong>. This enables targeted decision‑making, helping authorities prioritize safety interventions on the most critical profiles.</p>
+
+<p style="color: #808080;">
+        <strong>Highest Risk Profiles preview:</strong>
+      </p>
+      <p><img src="images/Project%2001/high-risk-profiles.jpg" alt="Dashboard screenshot showing KPIs and filters — replace with actual screenshot" style="width:100%;border-radius:8px;object-fit:cover"></p>
+
+
+     
+
+    <section class="section">
+      <h2>Conclusion & Next Steps</h2>
+      <p>
+        Targeted interventions guided by data are more likely to reduce road fatalities than one‑size‑fits‑all programs. By using this dashboard, policymakers and program designers can quickly identify priority groups and tailor interventions with measurable outcomes.
+      </p>
+
+      <p>
+        <strong>Capabilities demonstrated:</strong> complete data pipeline in Excel, thoughtful cleaning and grouping, KPI selection, interactive dashboard design, and policy‑relevant insight generation.
+      </p>
+
+      <p>
+        <a href="https://github.com/salithadinushika/National-Road-Fatality-Analysis---Australia" class="cta" target="_blank" rel="noopener">View GitHub Repository</a>
+        <a href="https://drive.google.com/file/d/1jYxvdcVkqip8WUImbllTCv5X8uAvrBtE/view?usp=sharing" class="cta" style="background:#0b9f6e;margin-left:8px;">Open Live Dashboard</a>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Credits & Dataset</h2>
+      <p>Data source: <a href="https://datahub.roadsafety.gov.au/" target="_blank" rel="noopener">National Road Safety Data Hub</a>.</p>
+      
+    </section>
+
+    <footer>
+   
+      <div style="margin-top:6px;color:var(--muted)">Last updated: <span id="publishDate">09/11/2025</span></div>
+    </footer>
+  </main>
+</body>
+</html>
